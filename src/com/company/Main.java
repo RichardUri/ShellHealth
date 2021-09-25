@@ -1,6 +1,9 @@
 package com.company;
 
+import com.company.Transactions.Prescription;
 import com.company.blocks.Block;
+import java.util.List;
+import java.util.Scanner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +28,31 @@ public class Main {
         System.out.println("First block is " + genesisBlock.toString());
         System.out.println("The block chain is " + blockChain.toString());
 
-        System.out.println("TESTING TESTING");
+
+//        //testing
+//        String patientName; //might remove
+//        String presName;
+//        String description;
+//        String expDate;
+//        int quantity;
+//
+//        Prescription[] prescription = new Prescription[5];
+//
+//        for(Prescription p: prescription){
+//            p.getPatientName();
+//            p.getPresName();
+//            p.getDescription();
+//            p.getExpDate();
+//            p.getQuantity();
+//
+//        }
+
+
+
+        Prescription prescription = new Prescription("Scout", "Adderal",
+            "Take 1 daily.", "12/16/2021", 30);
+        System.out.println(prescription.toString());
+
 
 
     }
