@@ -24,5 +24,9 @@ public class Main {
         blockChain.add(genesisBlock);
         System.out.println("First block is " + genesisBlock.toString());
         System.out.println("The block chain is " + blockChain.toString());
+
+        System.out.println("TESTING TESTING");
+
+
     }
 }
