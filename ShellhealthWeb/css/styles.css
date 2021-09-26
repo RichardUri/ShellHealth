@@ -1,0 +1,67 @@
+
+.big-heading {
+    font-size: 3.5rem;
+    line-height: 1.5;
+    padding: 50px;
+    text-align: center;
+}
+
+.product-description {
+    text-align: center;
+    padding-top: 3rem;
+}
+
+/* Container Section */
+
+.container-fluid {
+    padding: 0;
+}
+
+/* Section */
+
+.colored-section {
+    background-color: #BAE8E8;
+}
+
+/* Navigation bar */
+
+.navbar {
+    background-color: #1E56A0;
+}
+
+/* Title Image */
+
+.title-image {
+    width: 100%;
+}
+
+/* Feature Section */
+
+.feature-box {
+    padding: 4.5%;
+    text-align: center;
+}
+
+
+/****** Login Page *******/
+
+#login-body {
+    background-color: #BAE8E8;
+}
+
+.login-header {
+    text-align: center;
+}
+
+/* Form */
+
+.form-container {
+    justify-content: center;
+    align-items: center;
+    width: 26rem;
+}
+
+.login-container {
+    text-align: center;
+    padding-top: 5rem;
+}
