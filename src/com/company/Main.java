@@ -66,7 +66,6 @@ public class Main {
             transactions.add(prescription); //Contains arrayList of transactions.
 
             //Code to insert User prescription in first Column of each row.
-            //Potentially turn into a method using POINTER as a param.
             //As long as the pointer is not larger 15 code will run
             for(int row = pointer; row < patientTransactions.length; row++){
                 for(int col = 0; col < patientTransactions[row].length; col++){
@@ -78,15 +77,36 @@ public class Main {
                 break;
             }
 
-            Block newBlock = new Block(prescription, blockChain.get(prevBlockTracker).hashCode());  //Creates Block
+            Block newBlock = new Block(prescription, blockChain.get(prevBlockTracker).getBlockHash());  //Creates Block
             blockChain.add(newBlock);   //Adds Block to Chain
-            prevBlockTracker++;         //PREVBLOCK TRACKER NOT WORKING AS INTENDED. FIGURE OUT WHY HASHCODE IS GNOT WORKING.
+            prevBlockTracker++;
 
             System.out.println("Do you want to add another prescription? (y or n)");
             userChoice = input.next();
-        }//Create automated presciptions upon user saying no
+        }
 
-        System.out.println(prescription + "\n");
-        System.out.println("The block chain is " + blockChain);
+        //print out auto generated prescriptions after user says no.
+        for(int i = blockChain.size(); i < 15; i++){
+            prescription = new Prescription(prescription.randPatient(), prescription.randPres(),
+                prescription.randDesc(), prescription.randExp(), prescription.randQty());
+
+            transactions.add(prescription);
+
+
+            for(int row = pointer; row < patientTransactions.length; row++){
+                for(int col = 0; col < patientTransactions[row].length; col++){
+                    patientTransactions[row][col] = prescription;
+                    break;
+                }
+                pointer++;
+                break;
+            }
+
+            Block newBlock = new Block(prescription, blockChain.get(prevBlockTracker).getBlockHash());  //Creates Block
+            blockChain.add(newBlock);   //Adds Block to Chain
+            prevBlockTracker++;
+        }
+
+        System.out.println("\nThe block chain is " + blockChain);
     }
 }
