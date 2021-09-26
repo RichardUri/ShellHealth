@@ -4,31 +4,31 @@ import com.company.Transactions.Prescription;
 import com.company.blocks.Block;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
-    //Cleanup Main. Move blockchain code to its own file.
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Prescription prescription = new Prescription();
         ArrayList<Block> blockChain = new ArrayList<Block>();
+        ArrayList<Prescription> transactions = new ArrayList<Prescription>();
+        Prescription[][] patientTransactions = new Prescription[10][10];
 
-        //String iData;
+        //Genesis Block Code
+        Block genesisBlock = new Block(prescription, 0);//First block
+        blockChain.add(genesisBlock);
+
         String userChoice;
         //Set Placeholder strings inside the prescription vars? or keep as null?
-        String patientName = null; //might remove
+        String patientName = null;
         String presName = null;
         String description = null;
         String expDate = null;
         String quantity = null;
         int prevBlockTracker = 0;
+        int pointer = 0;
 
-        //Genesis Block Code
-        Block genesisBlock = new Block(prescription, 0);//First block
-        blockChain.add(genesisBlock);
-//        System.out.println("First block is " + genesisBlock);
 
         System.out.println("Do you want to manually add a prescription? (y or n)");
         userChoice = input.next();
@@ -63,8 +63,24 @@ public class Main {
             }
 
             prescription = new Prescription(patientName, presName, description, expDate, quantity);
+            transactions.add(prescription); //Contains arrayList of transactions.
+
+            //Code to insert User prescription in first Column of each row.
+            //Potentially turn into a method using POINTER as a param.
+            //As long as the pointer is not larger 15 code will run
+            for(int row = pointer; row < patientTransactions.length; row++){
+                for(int col = 0; col < patientTransactions[row].length; col++){
+                    patientTransactions[row][col] = prescription;
+                    //System.out.println("PATIENT INFO: " + patientTransactions[row][col]); //Test
+                    break;
+                }
+                pointer++;
+                break;
+            }
+
             Block newBlock = new Block(prescription, blockChain.get(prevBlockTracker).hashCode());  //Creates Block
             blockChain.add(newBlock);   //Adds Block to Chain
+            prevBlockTracker++;         //PREVBLOCK TRACKER NOT WORKING AS INTENDED. FIGURE OUT WHY HASHCODE IS GNOT WORKING.
 
             System.out.println("Do you want to add another prescription? (y or n)");
             userChoice = input.next();

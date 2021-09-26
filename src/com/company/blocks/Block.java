@@ -53,11 +53,11 @@ public class Block {
     //Will need to change
     @Override
     public String toString() {
-        return "Block{" +
-                "transactions=" + transactions.toString() +//Arrays.toString(transactions) +
-                ", blockHash=" + blockHash +
-                ", previousBlockHash=" + previousBlockHash +
-                "}\n";
+        return "\nBlock {" +
+                "transactions = " + transactions.toString() +//Arrays.toString(transactions) +
+                ", \nblockHash=" + blockHash +
+                ", \npreviousBlockHash=" + previousBlockHash +
+                "\n}\n";
 
     }
 }
