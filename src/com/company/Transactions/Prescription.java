@@ -6,13 +6,13 @@ public class Prescription {
     private String presName;
     private String description;
     private String expDate;
-    private int quantity;
+    private String quantity;
 
     public Prescription() {
     }
 
     public Prescription(String patientName, String presName, String description, String expDate,
-        int quantity) {
+        String quantity) {
         this.patientName = patientName;
         this.presName = presName;
         this.description = description;
@@ -37,7 +37,7 @@ public class Prescription {
         return expDate;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
@@ -58,7 +58,7 @@ public class Prescription {
         this.expDate = expDate;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
