@@ -1,5 +1,8 @@
 package com.company.Transactions;
 
+/*
+* Insert Desc
+*/
 public class Prescription {
 
     private String patientName; //might remove
@@ -8,9 +11,12 @@ public class Prescription {
     private String expDate;
     private String quantity;
 
+
+    //NO ARGS CONSTRUCTOR
     public Prescription() {
     }
 
+    //CONSTRUCTOR
     public Prescription(String patientName, String presName, String description, String expDate,
         String quantity) {
         this.patientName = patientName;
@@ -20,7 +26,8 @@ public class Prescription {
         this.quantity = quantity;
     }
 
-    //getters
+
+    //GETTERS
     public String getPatientName() {
         return patientName;
     }
@@ -41,7 +48,8 @@ public class Prescription {
         return quantity;
     }
 
-    //setters
+
+    //SETTERS
     public void setPatientName(String patientName) {
         this.patientName = patientName;
     }
@@ -62,16 +70,9 @@ public class Prescription {
         this.quantity = quantity;
     }
 
+
     @Override
     public String toString() {
-//        return "Prescription{" +
-//            "Patient Name='" + patientName + '\'' +
-//            ", presName='" + presName + '\'' +
-//            ", description='" + description + '\'' +
-//            ", expDate=" + expDate +
-//            ", quantity=" + quantity +
-//            '}';
-
         return  "Prescription{\n"
             + "Patient Name: " + patientName
             + "\nPrescription Name: " + presName

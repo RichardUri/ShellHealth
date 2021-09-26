@@ -1,5 +1,7 @@
 package com.company.blocks;
 
+import com.company.Transactions.Prescription;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -7,11 +9,11 @@ public class BlockChain {
 
     //Contains all blocks
     private ArrayList<Block> blockChain = new ArrayList<Block>();
-    private String[] initialValues;// = {"Prescription", "Test"};//Change to match perscription / transaction
+    private Prescription initialValues;// = {"Prescription", "Test"};//Change to match perscription / transaction
     private Block genesisBlock;// = new Block(initialValues, 0);//Genesis block
 
     //CONSTRUCTOR
-    public BlockChain(String[] initialValues, Block genesisBlock) {
+    public BlockChain(Prescription initialValues, Block genesisBlock) {
         //this.blockChain = blockChain;
         this.initialValues = initialValues; //Set manually or have user set?
         this.genesisBlock = new Block(initialValues, 0);
@@ -29,7 +31,7 @@ public class BlockChain {
         return blockChain;
     }
 
-    public String[] getInitialValues() {
+    public Prescription getInitialValues() {
         return initialValues;
     }
 
@@ -43,7 +45,7 @@ public class BlockChain {
         this.blockChain = blockChain;
     }
 
-    public void setInitialValues(String[] initialValues) {
+    public void setInitialValues(Prescription initialValues) {
         this.initialValues = initialValues;
     }
 

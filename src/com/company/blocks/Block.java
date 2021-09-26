@@ -1,25 +1,29 @@
 package com.company.blocks;
 
+import com.company.Transactions.Prescription;
 import java.util.Arrays;
+import java.util.Objects;
 
+/*
+* Insert Desc
+*/
 public class Block {
-    private String[] transactions;  //Change string to prescription/transaction
+    private Prescription transactions;  //Change string to prescription/transaction
     private int blockHash;
     private int previousBlockHash;
 
 
-    //Constructor
+    //CONSTRUCTOR
     //Change string to take Perscription. Objects.hashCode NOT Arrays.hashCode
-    public Block(String[] transactions, int previousBlockHash) {
-        //super();
+    public Block(Prescription transactions, int previousBlockHash) {
         this.transactions = transactions;
         this.previousBlockHash = previousBlockHash;
-        this.blockHash = Arrays.hashCode(new int[] {Arrays.hashCode(transactions), this.previousBlockHash});
+        this.blockHash = Arrays.hashCode(new int[] {Objects.hashCode(transactions), this.previousBlockHash});
     }
 
 
     //Setters
-    public void setTransactions(String[] transactions) {
+    public void setTransactions(Prescription transactions) {
         this.transactions = transactions;
     }
 
@@ -31,8 +35,9 @@ public class Block {
         this.previousBlockHash = previousBlockHash;
     }
 
+
     //Getters
-    public String[] getTransactions() {
+    public Prescription getTransactions() {
         return transactions;
     }
 
@@ -44,11 +49,12 @@ public class Block {
         return previousBlockHash;
     }
 
+
     //Will need to change
     @Override
     public String toString() {
         return "Block{" +
-                "transactions=" + Arrays.toString(transactions) +
+                "transactions=" + transactions.toString() +//Arrays.toString(transactions) +
                 ", blockHash=" + blockHash +
                 ", previousBlockHash=" + previousBlockHash +
                 "}\n";
