@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.Transactions.Prescription;
+import com.company.Transactions.SmartContract;
 import com.company.blocks.Block;
 
 import java.util.ArrayList;
@@ -70,7 +71,9 @@ public class Main {
             for(int row = pointer; row < patientTransactions.length; row++){
                 for(int col = 0; col < patientTransactions[row].length; col++){
                     patientTransactions[row][col] = prescription;
-                    //System.out.println("PATIENT INFO: " + patientTransactions[row][col]); //Test
+                    SmartContract.set(patientTransactions, prescription, row, col);
+                    SmartContract.get(patientTransactions);
+                    System.out.println("PATIENT INFO: " + patientTransactions[row][col]); //Test
                     break;
                 }
                 pointer++;
