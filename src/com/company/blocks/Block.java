@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /*
-* Insert Desc
+* The Block class will create a Block object using a given Prescription object and the hashcode
+* from the previous block in the blockChain in order to create a unique hashcode.
 */
 public class Block {
     private Prescription transactions;  //Change string to prescription/transaction
@@ -14,7 +15,6 @@ public class Block {
 
 
     //CONSTRUCTOR
-    //Change string to take Perscription. Objects.hashCode NOT Arrays.hashCode
     public Block(Prescription transactions, int previousBlockHash) {
         this.transactions = transactions;
         this.previousBlockHash = previousBlockHash;
@@ -22,7 +22,7 @@ public class Block {
     }
 
 
-    //Setters
+    //SETTERS
     public void setTransactions(Prescription transactions) {
         this.transactions = transactions;
     }
@@ -36,7 +36,7 @@ public class Block {
     }
 
 
-    //Getters
+    //GETTERS
     public Prescription getTransactions() {
         return transactions;
     }
@@ -50,7 +50,6 @@ public class Block {
     }
 
 
-    //Will need to change
     @Override
     public String toString() {
         return "\nBlock {" +

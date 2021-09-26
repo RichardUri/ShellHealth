@@ -7,6 +7,14 @@ import com.company.blocks.Block;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+/*
+* Authors:
+* Richard Uriarte
+* Amanda "Scout" Chacin-Livinalli
+* Carolina Valenzuela
+* James Lam
+ */
 public class Main {
 
     public static void main(String[] args) {
@@ -21,7 +29,6 @@ public class Main {
         blockChain.add(genesisBlock);
 
         String userChoice;
-        //Set Placeholder strings inside the prescription vars? or keep as null?
         String patientName = null;
         String presName = null;
         String description = null;
@@ -31,7 +38,7 @@ public class Main {
         int pointer = 0;
 
 
-        System.out.println("Do you want to manually add a prescription? (y or n)");
+        System.out.println("Would you like to manually add a prescription? (y or n)");
         userChoice = input.next();
 
         while(userChoice.equalsIgnoreCase("y")) {
@@ -73,7 +80,7 @@ public class Main {
                     patientTransactions[row][col] = prescription;
                     SmartContract.set(patientTransactions, prescription, row, col);
                     SmartContract.get(patientTransactions);
-                    System.out.println("PATIENT INFO: " + patientTransactions[row][col]); //Test
+                    //System.out.println("PATIENT INFO: " + patientTransactions[row][col]); //Test
                     break;
                 }
                 pointer++;
@@ -84,9 +91,10 @@ public class Main {
             blockChain.add(newBlock);   //Adds Block to Chain
             prevBlockTracker++;
 
-            System.out.println("Do you want to add another prescription? (y or n)");
+            System.out.println("Would you like to add another prescription? (y or n)");
             userChoice = input.next();
         }
+
 
         //print out auto generated prescriptions after user says no.
         for(int i = blockChain.size(); i < 15; i++){
@@ -94,7 +102,6 @@ public class Main {
                 prescription.randDesc(), prescription.randExp(), prescription.randQty());
 
             transactions.add(prescription);
-
 
             for(int row = pointer; row < patientTransactions.length; row++){
                 for(int col = 0; col < patientTransactions[row].length; col++){

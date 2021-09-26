@@ -5,16 +5,24 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /*
-* Insert Desc
-*/
+ * The prescription class will take in user information from the main class and add to list of
+ * prescriptions that will included in the blocks. If the user does not enter prescription
+ * information the program  will auto-generate prescriptions with the Array-List that can also
+ * be used to include prescriptions in the block.
+ */
 public class Prescription {
 
-    private String patientName; //might remove
+    //random number generator
+    private static Random random = new Random();
+
+    //Regular variables used for when user enters their own prescriptions.
+    private String patientName;
     private String presName;
     private String description;
     private String expDate;
     private String quantity;
 
+    //Used for auto-generated prescription
     ArrayList<String> patientList = new ArrayList<>();
     ArrayList<String> prescripList = new ArrayList<>();
     ArrayList<String> descList = new ArrayList<>();
@@ -102,6 +110,7 @@ public class Prescription {
         return qtyList;
     }
 
+
     //LIST SETTERS
     public void setPatientList(ArrayList<String> patientList) {
         this.patientList = patientList;
@@ -122,10 +131,6 @@ public class Prescription {
     public void setQtyList(ArrayList<String> qtyList) {
         this.qtyList = qtyList;
     }
-
-
-    //random number generator
-    private static Random random = new Random();
 
 
     //Adds patients to list and returns a random patient.

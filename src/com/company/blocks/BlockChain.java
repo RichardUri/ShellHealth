@@ -1,28 +1,24 @@
 package com.company.blocks;
 
 import com.company.Transactions.Prescription;
-
 import java.util.ArrayList;
-import java.util.Arrays;
+
+/*
+* The BlockChain class will receive a Prescription object and then genesisBlock (First Block)
+* in order to start the blockChain. This will link all blocks made to previous blocks.
+*/
 
 public class BlockChain {
 
-    //Contains all blocks
     private ArrayList<Block> blockChain = new ArrayList<Block>();
-    private Prescription initialValues;// = {"Prescription", "Test"};//Change to match perscription / transaction
-    private Block genesisBlock;// = new Block(initialValues, 0);//Genesis block
+    private Prescription initialValues;
+    private Block genesisBlock;//Genesis block (First Block)
+
 
     //CONSTRUCTOR
     public BlockChain(Prescription initialValues, Block genesisBlock) {
-        //this.blockChain = blockChain;
-        this.initialValues = initialValues; //Set manually or have user set?
+        this.initialValues = initialValues;
         this.genesisBlock = new Block(initialValues, 0);
-    }
-
-
-    //Adding a Block to the BlockChain. Helper method? Use recursively?
-    public void addBlockToChain(Block blockToAdd){
-        blockChain.add(blockToAdd);
     }
 
 
