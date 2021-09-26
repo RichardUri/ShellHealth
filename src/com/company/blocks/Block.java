@@ -3,18 +3,20 @@ package com.company.blocks;
 import java.util.Arrays;
 
 public class Block {
-    private String[] transactions;
+    private String[] transactions;  //Change string to prescription/transaction
     private int blockHash;
     private int previousBlockHash;
 
 
     //Constructor
+    //Change string to take Perscription. Objects.hashCode NOT Arrays.hashCode
     public Block(String[] transactions, int previousBlockHash) {
         //super();
         this.transactions = transactions;
         this.previousBlockHash = previousBlockHash;
         this.blockHash = Arrays.hashCode(new int[] {Arrays.hashCode(transactions), this.previousBlockHash});
     }
+
 
     //Setters
     public void setTransactions(String[] transactions) {
@@ -42,6 +44,7 @@ public class Block {
         return previousBlockHash;
     }
 
+    //Will need to change
     @Override
     public String toString() {
         return "Block{" +
